@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Globalization;
 using AireSpring.Presenter;
 using AireSpring.Service;
 using AireSpring.View;
+using static System.Int16;
 
 namespace AireSpring
 {
@@ -21,7 +18,7 @@ namespace AireSpring
 
         public int Id
         {
-            get => Int16.Parse(txtEmployeeId.Text);
+            get => Parse(txtEmployeeId.Text);
             set => txtEmployeeId.Text = value.ToString();
         }
         public string FirstName
@@ -33,6 +30,24 @@ namespace AireSpring
         {
             get => txtLastName.Text;
             set => txtLastName.Text = value;
+        }
+
+        public string Phone
+        {
+            get => txtPhone.Text;
+            set => txtPhone.Text = value;
+        }
+
+        public string Zip
+        {
+            get => txtZip.Text;
+            set => txtZip.Text = value;
+        }
+
+        public DateTime HireDate
+        {
+            get => DateTime.Parse(txtHireDate.Text);
+            set => txtHireDate.Text = value.ToString(CultureInfo.InvariantCulture);
         }
 
         public string Search

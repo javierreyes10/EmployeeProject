@@ -11,6 +11,9 @@ namespace AireSpring.View
         int Id { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }
+        string Phone { get; set; }
+        string Zip { get; set; }
+        DateTime HireDate { get; set; }
         string Search { get; set; }
 
     }
