@@ -3,16 +3,18 @@ using System.Globalization;
 using AireSpring.Presenter;
 using AireSpring.Service;
 using AireSpring.View;
+using Unity.Attributes;
 using static System.Int16;
 
 namespace AireSpring
 {
     public partial class EmployerView : System.Web.UI.Page, IEmployeeView
     {
-        private IEmployeeRepository _employeeRepository;
+        [Dependency] 
+        public IEmployeeRepository EmployeeRepository { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            _employeeRepository = new InMemoryEmployeeRepository();
 
         }
 
@@ -58,13 +60,13 @@ namespace AireSpring
 
         protected void SaveEmployee(object sender, EventArgs e)
         {
-            var employeePresenter = new EmployeePresenter(_employeeRepository, this);
+            var employeePresenter = new EmployeePresenter(EmployeeRepository, this);
             employeePresenter.SaveEmployee();
         }
 
         protected void SearchEmployee(object sender, EventArgs e)
         {
-            var employeePresenter = new EmployeePresenter(_employeeRepository, this);
+            var employeePresenter = new EmployeePresenter(EmployeeRepository, this);
             employeePresenter.GetEmployee();
         }
     }
