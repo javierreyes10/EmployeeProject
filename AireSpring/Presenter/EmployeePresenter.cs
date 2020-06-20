@@ -27,8 +27,12 @@ namespace AireSpring.Presenter
         {
             var search = Int16.Parse(_employeView.Search);
             var employee = _employeeRepository.GetEmployeeById(search);
+            _employeView.Id = employee.Id;
             _employeView.FirstName = employee.FirstName;
             _employeView.LastName = employee.LastName;
+            _employeView.Zip = employee.Zip;
+            _employeView.Phone = employee.Phone;
+            _employeView.HireDate = employee.HireDate;
         }
 
 

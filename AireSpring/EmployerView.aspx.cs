@@ -12,7 +12,7 @@ namespace AireSpring
         private IEmployeeRepository _employeeRepository;
         protected void Page_Load(object sender, EventArgs e)
         {
-            _employeeRepository = new EmployeeRepository();
+            _employeeRepository = new InMemoryEmployeeRepository();
 
         }
 
