@@ -19,6 +19,9 @@
                     },
                     {
                         data: "Zip"
+                    },
+                    {
+                        data: "HireDate"
                     }
                 ]
             });
