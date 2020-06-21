@@ -11,7 +11,8 @@ namespace AireSpring.Presenter
     public interface IEmployeePresenter
     {
         IEmployeeView EmployeeView { get; set; }
-        void GetEmployee();
+        void Initialize(string id);
+        void GetEmployee(int id);
         void SaveEmployee();
     }
 }

@@ -15,6 +15,8 @@ namespace AireSpring
         protected void Page_Load(object sender, EventArgs e)
         {
             _employeePresenter.EmployeeView = this;
+            var employeeId = Request.QueryString["employeeID"];
+            _employeePresenter.Initialize(employeeId);
         }
 
         #region ControlProperties
@@ -52,24 +54,13 @@ namespace AireSpring
             set => txtHireDate.Text = value.ToString(CultureInfo.InvariantCulture);
         }
 
-        public string Search
-        {
-            get => txtSearch.Text;
-            set => txtSearch.Text = value;
-        }
-
         #endregion
 
 
         protected void SaveEmployee(object sender, EventArgs e)
         {
             _employeePresenter.SaveEmployee();
-        }
-
-        protected void SearchEmployee(object sender, EventArgs e)
-        {
-
-            _employeePresenter.GetEmployee();
+            Response.Redirect("Index.aspx");
         }
 
     }

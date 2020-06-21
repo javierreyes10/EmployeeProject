@@ -19,10 +19,21 @@ namespace AireSpring.Presenter
         }
 
 
-        public void GetEmployee()
+        public void Initialize(string id)
         {
-            var search = Int16.Parse(EmployeeView.Search);
-            var employee = _employeeRepository.GetEmployeeById(search);
+            if (string.IsNullOrEmpty(id) || id == "0")
+            {
+                EmployeeView.Id = 0;
+                return;
+            }
+
+            var searchId = Int32.Parse(id); 
+            GetEmployee(searchId);
+        }
+
+        public void GetEmployee(int id)
+        {
+            var employee = _employeeRepository.GetEmployeeById(id);
             EmployeeView.Id = employee.Id;
             EmployeeView.FirstName = employee.FirstName;
             EmployeeView.LastName = employee.LastName;
@@ -41,7 +52,17 @@ namespace AireSpring.Presenter
                 HireDate = EmployeeView.HireDate
             };
 
-            _employeeRepository.SaveEmployee(employee);
+            if (EmployeeView.Id == 0)
+            {
+                _employeeRepository.AddEmployee(employee);
+            }
+            else
+            {
+                 _employeeRepository.UpdateEmployee(employee);
+                
+            }
+
+
         }
     }
 }

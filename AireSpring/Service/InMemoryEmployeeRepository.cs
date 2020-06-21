@@ -57,11 +57,16 @@ namespace AireSpring.Service
             return _employees;
         }
 
-        public bool SaveEmployee(Employee employee)
+        public bool AddEmployee(Employee employee)
         {
             var lastEmployee = _employees.OrderByDescending(e => e.Id).FirstOrDefault();
             if (lastEmployee != null) employee.Id = lastEmployee.Id + 1;
             _employees.Add(employee);
+            return true;
+        }
+
+        public bool UpdateEmployee(Employee employee)
+        {
             return true;
         }
     }

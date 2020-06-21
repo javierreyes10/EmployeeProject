@@ -12,6 +12,8 @@ namespace AireSpring.Service
         Employee GetEmployeeById(int id);
 
         IEnumerable<Employee> GetEmployees();
-        bool SaveEmployee(Employee employee);
+        bool AddEmployee(Employee employee);
+
+        bool UpdateEmployee(Employee employee);
     }
 }
