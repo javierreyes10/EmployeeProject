@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
-using System.Net.NetworkInformation;
-using System.Web.Script.Services;
-using System.Web.Services;
-using AireSpring.Dto;
-using AireSpring.Model;
 using AireSpring.Presenter;
-using AireSpring.Service;
 using AireSpring.View;
-using Unity.Attributes;
 using static System.Int16;
 
 namespace AireSpring
