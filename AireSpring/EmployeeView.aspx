@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployerView.aspx.cs" Inherits="AireSpring.EmployerView" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmployeeView.aspx.cs" Inherits="AireSpring.EmployeeView" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div>
             &nbsp;ID
             <asp:TextBox ID="txtEmployeeId" runat="server" Enabled="False"></asp:TextBox>
             <br />
@@ -33,8 +25,6 @@
         <asp:Button ID="btnSaveEmployee" runat="server" OnClick="SaveEmployee" Text="Save" />
         <br />
         <br />
-&nbsp;<asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+        &nbsp;<asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
         <asp:Button ID="btnSearchEmployee" runat="server" OnClick="SearchEmployee" Text="Search" />
-    </form>
-</body>
-</html>
+</asp:Content>

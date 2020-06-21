@@ -122,7 +122,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="EmployerView.aspx" />
+    <Content Include="EmployeeView.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -193,12 +193,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EmployerView.aspx.cs">
-      <DependentUpon>EmployerView.aspx</DependentUpon>
+    <Compile Include="EmployeeView.aspx.cs">
+      <DependentUpon>EmployeeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EmployerView.aspx.designer.cs">
-      <DependentUpon>EmployerView.aspx</DependentUpon>
+    <Compile Include="EmployeeView.aspx.designer.cs">
+      <DependentUpon>EmployeeView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

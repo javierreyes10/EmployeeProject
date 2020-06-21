@@ -2,14 +2,13 @@
 using System.Globalization;
 using AireSpring.Presenter;
 using AireSpring.View;
-using static System.Int16;
 
 namespace AireSpring
 {
-    public partial class EmployerView : System.Web.UI.Page, IEmployeeView
+    public partial class EmployeeView : System.Web.UI.Page, IEmployeeView
     {
         private readonly IEmployeePresenter _employeePresenter;
-        public EmployerView(IEmployeePresenter employeePresenter)
+        public EmployeeView(IEmployeePresenter employeePresenter)
         {
             _employeePresenter = employeePresenter;
         }
@@ -21,7 +20,7 @@ namespace AireSpring
         #region ControlProperties
         public int Id
         {
-            get => Parse(txtEmployeeId.Text);
+            get => Int32.Parse(txtEmployeeId.Text);
             set => txtEmployeeId.Text = value.ToString();
         }
         public string FirstName
@@ -72,7 +71,6 @@ namespace AireSpring
 
             _employeePresenter.GetEmployee();
         }
-
 
     }
 }
