@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AireSpring.Model;
+using AireSpring.View;
 
 namespace AireSpring.Presenter
 {
-    interface IEmployeePresenter
+    public interface IEmployeePresenter
     {
-        void Initialize();
-
+        IEmployeeView EmployeeView { get; set; }
         void GetEmployee();
         void SaveEmployee();
     }

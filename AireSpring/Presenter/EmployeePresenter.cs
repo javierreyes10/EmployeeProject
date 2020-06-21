@@ -11,34 +11,36 @@ namespace AireSpring.Presenter
     public class EmployeePresenter : IEmployeePresenter
     {
         private readonly IEmployeeRepository _employeeRepository;
-        private readonly IEmployeeView _employeView;
+        public IEmployeeView EmployeeView { get; set; }
 
-        public EmployeePresenter(IEmployeeRepository employeeRepository, IEmployeeView employeeView)
+        public EmployeePresenter(IEmployeeRepository employeeRepository)
         {
              _employeeRepository = employeeRepository;
-             _employeView = employeeView;
         }
-        public void Initialize()
-        {
-            throw new NotImplementedException();
-        }
+
 
         public void GetEmployee()
         {
-            var search = Int16.Parse(_employeView.Search);
+            var search = Int16.Parse(EmployeeView.Search);
             var employee = _employeeRepository.GetEmployeeById(search);
-            _employeView.Id = employee.Id;
-            _employeView.FirstName = employee.FirstName;
-            _employeView.LastName = employee.LastName;
-            _employeView.Zip = employee.Zip;
-            _employeView.Phone = employee.Phone;
-            _employeView.HireDate = employee.HireDate;
+            EmployeeView.Id = employee.Id;
+            EmployeeView.FirstName = employee.FirstName;
+            EmployeeView.LastName = employee.LastName;
+            EmployeeView.Zip = employee.Zip;
+            EmployeeView.Phone = employee.Phone;
+            EmployeeView.HireDate = employee.HireDate;
         }
 
 
         public void SaveEmployee()
         {
-            var employee = new Employee {FirstName = _employeView.FirstName, LastName = _employeView.LastName};
+            var employee = new Employee {FirstName = EmployeeView.FirstName, 
+                LastName = EmployeeView.LastName,
+                Phone = EmployeeView.Phone,
+                Zip = EmployeeView.Zip,
+                HireDate = EmployeeView.HireDate
+            };
+
             _employeeRepository.SaveEmployee(employee);
         }
     }

@@ -8,7 +8,7 @@ namespace AireSpring.Service
 {
     public class InMemoryEmployeeRepository : IEmployeeRepository
     {
-        private readonly IEnumerable<Employee> _employees;
+        private readonly List<Employee> _employees;
         public InMemoryEmployeeRepository()
         {
             _employees = new List<Employee>
@@ -52,9 +52,17 @@ namespace AireSpring.Service
             return _employees.FirstOrDefault(e => e.Id == id);
         }
 
-        public void SaveEmployee(Employee employee)
+        public IEnumerable<Employee> GetEmployees()
         {
-            
+            return _employees;
+        }
+
+        public bool SaveEmployee(Employee employee)
+        {
+            var lastEmployee = _employees.OrderByDescending(e => e.Id).FirstOrDefault();
+            if (lastEmployee != null) employee.Id = lastEmployee.Id + 1;
+            _employees.Add(employee);
+            return true;
         }
     }
 }

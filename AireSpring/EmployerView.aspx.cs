@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
+using System.Net.NetworkInformation;
+using System.Web.Script.Services;
+using System.Web.Services;
+using AireSpring.Dto;
+using AireSpring.Model;
 using AireSpring.Presenter;
 using AireSpring.Service;
 using AireSpring.View;
@@ -10,14 +17,17 @@ namespace AireSpring
 {
     public partial class EmployerView : System.Web.UI.Page, IEmployeeView
     {
-        [Dependency] 
-        public IEmployeeRepository EmployeeRepository { get; set; }
-
+        private readonly IEmployeePresenter _employeePresenter;
+        public EmployerView(IEmployeePresenter employeePresenter)
+        {
+            _employeePresenter = employeePresenter;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _employeePresenter.EmployeeView = this;
         }
 
+        #region ControlProperties
         public int Id
         {
             get => Parse(txtEmployeeId.Text);
@@ -58,16 +68,20 @@ namespace AireSpring
             set => txtSearch.Text = value;
         }
 
+        #endregion
+
+
         protected void SaveEmployee(object sender, EventArgs e)
         {
-            var employeePresenter = new EmployeePresenter(EmployeeRepository, this);
-            employeePresenter.SaveEmployee();
+            _employeePresenter.SaveEmployee();
         }
 
         protected void SearchEmployee(object sender, EventArgs e)
         {
-            var employeePresenter = new EmployeePresenter(EmployeeRepository, this);
-            employeePresenter.GetEmployee();
+
+            _employeePresenter.GetEmployee();
         }
+
+
     }
 }

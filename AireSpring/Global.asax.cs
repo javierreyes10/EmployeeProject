@@ -2,9 +2,11 @@
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AireSpring.Presenter;
 using AireSpring.Service;
 using Microsoft.AspNet.WebFormsDependencyInjection.Unity;
 using Unity;
+using Unity.Lifetime;
 
 namespace AireSpring
 {
@@ -18,7 +20,9 @@ namespace AireSpring
 
             var container = this.AddUnity();
 
-            container.RegisterType<IEmployeeRepository, InMemoryEmployeeRepository>();
+            container.RegisterType<IEmployeeRepository, InMemoryEmployeeRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IEmployeePresenter, EmployeePresenter>();
+
         }
     }
 }
