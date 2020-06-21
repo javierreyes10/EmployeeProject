@@ -35,7 +35,9 @@ namespace AireSpring
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
 
-           
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+                "~/Scripts/inputmask/jquery.inputmask.js"));
+
         }
     }
 }
