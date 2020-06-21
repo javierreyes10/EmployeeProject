@@ -25,7 +25,7 @@ namespace AireSpring
                 m.Phone,
                 m.Zip,
                 HireDate = m.HireDate.ToString("MM/dd/yyyy")
-            });
+            }).OrderBy(m=>m.HireDate);
             context.Response.ContentType = "text/json";
             context.Response.Write(JsonConvert.SerializeObject(employees));
         }
