@@ -10,7 +10,6 @@ namespace AireSpring.Service
     public interface IEmployeeRepository
     {
         Employee GetEmployeeById(int id);
-
         IEnumerable<Employee> GetEmployees();
         bool AddEmployee(Employee employee);
 
