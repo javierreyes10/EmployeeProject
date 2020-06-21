@@ -14,9 +14,13 @@ namespace AireSpring
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            _employeePresenter.EmployeeView = this;
-            var employeeId = Request.QueryString["employeeID"];
-            _employeePresenter.Initialize(employeeId);
+            if (!IsPostBack)
+            {
+                _employeePresenter.EmployeeView = this;
+                var employeeId = Request.QueryString["employeeID"];
+                _employeePresenter.Initialize(employeeId);
+            }
+
         }
 
         #region ControlProperties
@@ -59,6 +63,7 @@ namespace AireSpring
 
         protected void SaveEmployee(object sender, EventArgs e)
         {
+            _employeePresenter.EmployeeView = this;
             _employeePresenter.SaveEmployee();
             Response.Redirect("Index.aspx");
         }

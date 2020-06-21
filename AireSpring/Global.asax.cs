@@ -20,7 +20,8 @@ namespace AireSpring
 
             var container = this.AddUnity();
 
-            container.RegisterType<IEmployeeRepository, InMemoryEmployeeRepository>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<IEmployeeRepository, InMemoryEmployeeRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IEmployeeRepository, EmployeeRepositoryDb>();
             container.RegisterType<IEmployeePresenter, EmployeePresenter>();
 
         }

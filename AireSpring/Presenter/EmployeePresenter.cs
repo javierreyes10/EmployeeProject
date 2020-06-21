@@ -45,7 +45,9 @@ namespace AireSpring.Presenter
 
         public void SaveEmployee()
         {
-            var employee = new Employee {FirstName = EmployeeView.FirstName, 
+            var employee = new Employee {
+                Id = EmployeeView.Id,
+                FirstName = EmployeeView.FirstName, 
                 LastName = EmployeeView.LastName,
                 Phone = EmployeeView.Phone,
                 Zip = EmployeeView.Zip,
