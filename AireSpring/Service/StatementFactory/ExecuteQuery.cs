@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
 using AireSpring.Model;
 using Dapper;
 
-namespace AireSpring.Service.ExecuteStatementFactory
+namespace AireSpring.Service.StatementFactory
 {
     public class ExecuteQuery : IExecuteStatement<List<Employee>>
     {

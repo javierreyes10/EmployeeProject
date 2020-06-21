@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Web;
-using AireSpring.Model;
-
-namespace AireSpring.Service.ExecuteStatementFactory
+﻿namespace AireSpring.Service.StatementFactory
 {
     public static class ExecuteStatementFactory
     {

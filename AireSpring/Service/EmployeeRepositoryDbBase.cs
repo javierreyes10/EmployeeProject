@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading;
-using System.Web;
 using AireSpring.Model;
-using Dapper;
+using AireSpring.Service.StatementFactory;
 
-namespace AireSpring.Service.ExecuteStatementFactory
+namespace AireSpring.Service
 {
     public class EmployeeRepositoryDbBase
     {
         protected T Execute<T>(string statement, Employee employee)
         {
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["EmployeeDB"].ConnectionString))
+            using (IDbConnection db =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EmployeeDB"].ConnectionString))
             {
                 if (db.State == ConnectionState.Closed) db.Open();
 
@@ -28,8 +24,7 @@ namespace AireSpring.Service.ExecuteStatementFactory
                 }
                 catch
                 {
-                    TResult = default(T);
-
+                    TResult = default;
                 }
 
                 return TResult;
