@@ -42,16 +42,9 @@ namespace AireSpring.Presenter
 
             Mapper.Map(EmployeeView, employee);
 
-            bool isSuccess;
-            if (EmployeeView.Id == 0)
-            {
-                isSuccess = _employeeRepository.AddEmployee(employee);
-            }
-            else
-            {
-                isSuccess = _employeeRepository.UpdateEmployee(employee);
-                
-            }
+            var isSuccess = EmployeeView.Id == 0 ? 
+                            _employeeRepository.AddEmployee(employee) 
+                            : _employeeRepository.UpdateEmployee(employee);
 
             if (!isSuccess)
                 EmployeeView.ErrorMessage = "There was an error. Please try again later";
