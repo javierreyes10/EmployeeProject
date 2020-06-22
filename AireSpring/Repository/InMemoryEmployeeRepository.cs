@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using AireSpring.Model;
 
-namespace AireSpring.Service
+namespace AireSpring.Repository
 {
     public class InMemoryEmployeeRepository : IEmployeeRepository
     {

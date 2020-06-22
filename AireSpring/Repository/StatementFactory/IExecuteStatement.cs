@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using AireSpring.Model;
 
-namespace AireSpring.Service.StatementFactory
+namespace AireSpring.Repository.StatementFactory
 {
     public interface IExecuteStatement<T>
     {

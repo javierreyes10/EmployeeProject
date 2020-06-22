@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using AireSpring.Helper;
 using AireSpring.Model;
-using Dapper;
 
-namespace AireSpring.Service
+namespace AireSpring.Repository
 {
     public class EmployeeRepositoryDb : EmployeeRepositoryDbBase,  IEmployeeRepository
     {

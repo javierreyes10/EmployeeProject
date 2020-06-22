@@ -2,9 +2,9 @@
 using System.Data.SqlClient;
 using AireSpring.Helper;
 using AireSpring.Model;
-using AireSpring.Service.StatementFactory;
+using AireSpring.Repository.StatementFactory;
 
-namespace AireSpring.Service
+namespace AireSpring.Repository
 {
     public class EmployeeRepositoryDbBase
     {

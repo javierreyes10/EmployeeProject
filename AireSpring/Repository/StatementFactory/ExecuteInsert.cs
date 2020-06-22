@@ -2,7 +2,7 @@
 using AireSpring.Model;
 using Dapper;
 
-namespace AireSpring.Service.StatementFactory
+namespace AireSpring.Repository.StatementFactory
 {
     public class ExecuteInsert : IExecuteStatement<int>
     {

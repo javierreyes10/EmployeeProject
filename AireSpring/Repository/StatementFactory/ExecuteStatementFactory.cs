@@ -1,6 +1,6 @@
 ﻿using AireSpring.Helper;
 
-namespace AireSpring.Service.StatementFactory
+namespace AireSpring.Repository.StatementFactory
 {
     public static class ExecuteStatementFactory
     {
