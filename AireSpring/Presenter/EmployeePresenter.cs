@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using AireSpring.Model;
 using AireSpring.Repository;
 using AireSpring.View;
+using AutoMapper;
 
 namespace AireSpring.Presenter
 {
@@ -34,25 +32,15 @@ namespace AireSpring.Presenter
         public void GetEmployee(int id)
         {
             var employee = _employeeRepository.GetEmployeeById(id);
-            EmployeeView.Id = employee.Id;
-            EmployeeView.FirstName = employee.FirstName;
-            EmployeeView.LastName = employee.LastName;
-            EmployeeView.Zip = employee.Zip;
-            EmployeeView.Phone = employee.Phone;
-            EmployeeView.HireDate = employee.HireDate;
+            Mapper.Map(employee, EmployeeView);
         }
 
 
         public bool SaveEmployee()
         {
-            var employee = new Employee {
-                Id = EmployeeView.Id,
-                FirstName = EmployeeView.FirstName, 
-                LastName = EmployeeView.LastName,
-                Phone = EmployeeView.Phone,
-                Zip = EmployeeView.Zip,
-                HireDate = EmployeeView.HireDate
-            };
+            var employee = new Employee();
+
+            Mapper.Map(EmployeeView, employee);
 
             bool isSuccess;
             if (EmployeeView.Id == 0)

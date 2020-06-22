@@ -26,9 +26,10 @@ namespace AireSpring
         #region ControlProperties
         public int Id
         {
-            get => Int32.Parse(txtEmployeeId.Text);
+            get => string.IsNullOrEmpty(txtEmployeeId.Text) ? 0 : Int32.Parse(txtEmployeeId.Text);
             set => txtEmployeeId.Text = value.ToString();
         }
+
         public string FirstName
         {
             get => txtFirstName.Text;
@@ -54,7 +55,7 @@ namespace AireSpring
 
         public DateTime HireDate
         {
-            get => DateTime.Parse(txtHireDate.Text);
+            get => (string.IsNullOrEmpty(txtHireDate.Text))? DateTime.MinValue : DateTime.Parse(txtHireDate.Text); 
             set => txtHireDate.Text = value.ToString(CultureInfo.InvariantCulture);
         }
 

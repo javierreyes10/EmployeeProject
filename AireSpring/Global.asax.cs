@@ -2,12 +2,13 @@
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AireSpring.App_Start;
 using AireSpring.Helper;
 using AireSpring.Presenter;
 using AireSpring.Repository;
+using AutoMapper;
 using Microsoft.AspNet.WebFormsDependencyInjection.Unity;
 using Unity;
-using Unity.Lifetime;
 
 namespace AireSpring
 {
@@ -15,6 +16,7 @@ namespace AireSpring
     {
         void Application_Start(object sender, EventArgs e)
         {
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
