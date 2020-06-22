@@ -1,4 +1,6 @@
-﻿namespace AireSpring.Service.StatementFactory
+﻿using AireSpring.Helper;
+
+namespace AireSpring.Service.StatementFactory
 {
     public static class ExecuteStatementFactory
     {
@@ -6,10 +8,10 @@
         {
             switch (statement)
             {
-                case "QUERY": return new ExecuteQuery() as IExecuteStatement<T>;
-                case "SINGLE": return new ExecuteQuerySingleResult() as IExecuteStatement<T>;
-                case "UPDATE": return new ExecuteUpdate() as IExecuteStatement<T>;
-                case "INSERT": return new ExecuteInsert() as IExecuteStatement<T>;
+                case ExecuteHelper.QUERY: return new ExecuteQuery() as IExecuteStatement<T>;
+                case ExecuteHelper.SINGLE_QUERY: return new ExecuteQuerySingleResult() as IExecuteStatement<T>;
+                case ExecuteHelper.UPDATE: return new ExecuteUpdate() as IExecuteStatement<T>;
+                case ExecuteHelper.INSERT: return new ExecuteInsert() as IExecuteStatement<T>;
                 default: return null;
             }
         }

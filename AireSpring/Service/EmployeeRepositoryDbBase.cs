@@ -1,6 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
+using AireSpring.Helper;
 using AireSpring.Model;
 using AireSpring.Service.StatementFactory;
 
@@ -8,10 +8,15 @@ namespace AireSpring.Service
 {
     public class EmployeeRepositoryDbBase
     {
+        private readonly IDbHelperConnectionString _connectionString;
+        public EmployeeRepositoryDbBase(IDbHelperConnectionString connectionString)
+        {
+            _connectionString = connectionString;
+        }
         protected T Execute<T>(string statement, Employee employee)
         {
             using (IDbConnection db =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EmployeeDB"].ConnectionString))
+                new SqlConnection(_connectionString.ConnectionString))
             {
                 if (db.State == ConnectionState.Closed) db.Open();
 

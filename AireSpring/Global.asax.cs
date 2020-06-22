@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AireSpring.Helper;
 using AireSpring.Presenter;
 using AireSpring.Service;
 using Microsoft.AspNet.WebFormsDependencyInjection.Unity;
@@ -23,6 +24,7 @@ namespace AireSpring
             //container.RegisterType<IEmployeeRepository, InMemoryEmployeeRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IEmployeeRepository, EmployeeRepositoryDb>();
             container.RegisterType<IEmployeePresenter, EmployeePresenter>();
+            container.RegisterType<IDbHelperConnectionString, DbHelperConnectionString>();
 
         }
     }
