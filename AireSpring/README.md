@@ -33,3 +33,7 @@ In the same way, the Factory method pattern has been implemented to follow the D
 - Global.asax.cs It is used to define the dependency container, here we can change the data source if it is required.
 - App_Start\MappingProfile.cs Automapper configuration.a
 - Scripts\Custom. Here are the JS file made for this project
+- The Database used is in the mdf file. Also the script has been added to the solution.
+
+## Project Structure
+- In the home page, go the "Employee Section" next to "Home" for accesssing the employe page
