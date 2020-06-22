@@ -1,33 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="AireSpring.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var table = $("#employees").DataTable({
-                ajax: {
-                    url: "/EmployeeHandler.ashx",
-                    dataSrc: "" //Empty string because of our data source is a array of objects itself
-                },
-                columns: [
-                    {
-                        data: "FirstName",
-                        render: function (data, type, employee) {
-                            return "<a href='EmployeeView?employeeID=" + employee.Id + "'>" + employee.FirstName + " " + employee.LastName + "</a>";
-                        }
-                    },
-                    {
-                        data: "Phone"
-                    },
-                    {
-                        data: "Zip"
-                    },
-                    {
-                        data: "HireDate"
-                    }
-                ]
-            });
-        });
-    </script>
-    <br/>
+    <link href="Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="Scripts/Custom/EmployeeIndex.js"></script>
     <br/>
     <h2>Employees</h2>
     <br/>

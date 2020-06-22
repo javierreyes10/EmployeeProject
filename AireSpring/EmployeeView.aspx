@@ -1,38 +1,47 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmployeeView.aspx.cs" Inherits="AireSpring.EmployeeView" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <%: Scripts.Render("~/bundles/inputmask") %>
     <script src="Scripts/jquery-ui-1.12.1.min.js"></script>
     <link href="Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="Scripts/Custom/EmployeeView.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_txtPhone').inputmask("(999) 999-9999", { placeholder: "(XXX) XXX-XXXX" });
-            $('#MainContent_txtHireDate').inputmask("99/99/9999", { placeholder: "MM/DD/YYYY" });
-            $('#MainContent_txtHireDate').datepicker();
-        });
-    </script>
     <div>
-
-            &nbsp;ID
-            <asp:TextBox ID="txtEmployeeId" runat="server" Enabled="False"></asp:TextBox>
+        <h2>Employee</h2>
+        <br/>
+        <div class="form-group">
+            ID
             <br />
-            <br />
-            First Name
-            <asp:TextBox ID="txtFirstName" runat="server" required></asp:TextBox>
-            <br />
-            <br />
-            Last Name
-            <asp:TextBox ID="txtLastName" runat="server" required></asp:TextBox>
-            <br />
-            <br />
-            Phone
-            <asp:TextBox ID="txtPhone" runat="server" required></asp:TextBox>
-            <br />
-            <br />
-            Zip<asp:TextBox ID="txtZip" runat="server" required></asp:TextBox>
-            <br />
-            <br />
-            Hire Date<asp:TextBox ID="txtHireDate" runat="server" required></asp:TextBox>
+            <asp:TextBox ID="txtEmployeeId" runat="server" Enabled="False" required class="form-control"></asp:TextBox>
         </div>
-        <asp:Button ID="btnSaveEmployee" runat="server" OnClick="SaveEmployee" Text="Save" />
+        <div class="form-group">
+            First Name
+            <br />
+            <asp:TextBox ID="txtFirstName" runat="server" required class="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            Last Name
+            <br />
+            <asp:TextBox ID="txtLastName" runat="server" required class="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            Phone
+            <br />
+            <asp:TextBox ID="txtPhone" runat="server" required class="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            Zip
+            <br />
+            <asp:TextBox ID="txtZip" runat="server" required class="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            Hire Date
+            <br />
+            <asp:TextBox ID="txtHireDate" runat="server" required class="form-control"></asp:TextBox>
+        </div>
+
+
+    </div>
+    <br />
+    <asp:Button ID="btnSaveEmployee" runat="server" OnClick="SaveEmployee" Text="Save" class="btn btn-primary" />
 </asp:Content>
