@@ -9,13 +9,13 @@ namespace AireSpring.Presenter
     public class EmployeePresenter : IEmployeePresenter
     {
         private readonly IEmployeeRepository _employeeRepository;
+
         public IEmployeeView EmployeeView { get; set; }
 
         public EmployeePresenter(IEmployeeRepository employeeRepository)
         {
              _employeeRepository = employeeRepository;
         }
-
 
         public void Initialize(string id)
         {

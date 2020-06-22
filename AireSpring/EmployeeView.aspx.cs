@@ -14,12 +14,11 @@ namespace AireSpring
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                _employeePresenter.EmployeeView = this;
-                var employeeId = Request.QueryString["employeeID"];
-                _employeePresenter.Initialize(employeeId);
-            }
+            if (IsPostBack) return;
+
+            _employeePresenter.EmployeeView = this;
+            var employeeId = Request.QueryString["employeeID"];
+            _employeePresenter.Initialize(employeeId);
 
         }
 
