@@ -122,9 +122,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="App_Data\Employee.mdf" />
-    <Content Include="App_Data\Employee_log.ldf">
-      <DependentUpon>Employee.mdf</DependentUpon>
-    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
