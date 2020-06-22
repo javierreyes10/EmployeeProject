@@ -58,14 +58,21 @@ namespace AireSpring
             set => txtHireDate.Text = value.ToString(CultureInfo.InvariantCulture);
         }
 
+        public string ErrorMessage
+        {
+            get => lblErrorMessage.Text;
+            set => lblErrorMessage.Text = value;
+        }
+
         #endregion
 
 
         protected void SaveEmployee(object sender, EventArgs e)
         {
             _employeePresenter.EmployeeView = this;
-            _employeePresenter.SaveEmployee();
-            Response.Redirect("Index.aspx");
+
+            if(_employeePresenter.SaveEmployee())
+                Response.Redirect("Index.aspx");
         }
 
     }

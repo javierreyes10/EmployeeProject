@@ -13,6 +13,6 @@ namespace AireSpring.Presenter
         IEmployeeView EmployeeView { get; set; }
         void Initialize(string id);
         void GetEmployee(int id);
-        void SaveEmployee();
+        bool SaveEmployee();
     }
 }

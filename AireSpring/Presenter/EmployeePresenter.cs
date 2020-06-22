@@ -43,7 +43,7 @@ namespace AireSpring.Presenter
         }
 
 
-        public void SaveEmployee()
+        public bool SaveEmployee()
         {
             var employee = new Employee {
                 Id = EmployeeView.Id,
@@ -54,17 +54,21 @@ namespace AireSpring.Presenter
                 HireDate = EmployeeView.HireDate
             };
 
+            bool isSuccess;
             if (EmployeeView.Id == 0)
             {
-                _employeeRepository.AddEmployee(employee);
+                isSuccess = _employeeRepository.AddEmployee(employee);
             }
             else
             {
-                 _employeeRepository.UpdateEmployee(employee);
+                isSuccess = _employeeRepository.UpdateEmployee(employee);
                 
             }
 
+            if (!isSuccess)
+                EmployeeView.ErrorMessage = "There was an error. Please try again later";
 
+            return isSuccess;
         }
     }
 }

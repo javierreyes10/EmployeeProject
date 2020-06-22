@@ -14,6 +14,7 @@ namespace AireSpring.View
         string Phone { get; set; }
         string Zip { get; set; }
         DateTime HireDate { get; set; }
+        string ErrorMessage { get; set; }
 
     }
 }

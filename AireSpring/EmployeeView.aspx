@@ -39,9 +39,10 @@
             <br />
             <asp:TextBox ID="txtHireDate" runat="server" required class="form-control"></asp:TextBox>
         </div>
-
-
     </div>
+    <asp:Label ID="lblErrorMessage" runat="server" class="label label-danger"></asp:Label>
     <br />
+    <br />
+
     <asp:Button ID="btnSaveEmployee" runat="server" OnClick="SaveEmployee" Text="Save" class="btn btn-primary" />
 </asp:Content>
